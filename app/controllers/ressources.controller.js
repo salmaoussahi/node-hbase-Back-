@@ -1,6 +1,23 @@
 const hbase = require('hbase')
 client = hbase({ host: '127.0.0.1', port: 10005 })
 
+//Ressources
+
+exports.findAllRessourcesNames = (req, res) => {
+  var ressources=[]
+  client
+    .table('Ressources')
+    .schema(function(error, schema){
+        schema.ColumnSchema.forEach(function(name){
+            var name = name.name;
+            ressources.push(name);
+        })
+        console.log("ressources")
+        console.log(ressources)
+        res.send(ressources)
+      })
+};
+
 //Restaurant
 
 exports.findAllRestaurantNames = (req, res) => {

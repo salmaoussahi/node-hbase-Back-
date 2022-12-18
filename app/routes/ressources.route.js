@@ -2,12 +2,14 @@ module.exports = app => {
     const ressource = require("../controllers/ressources.controller");
   
     var router = require("express").Router();
-  
-    router.get("/restaurant", ressource.findAllRestaurantNames);
-    router.get("/restaurant/:name", ressource.findRestaurantByName);
-    router.put("/restaurant/:name", ressource.updateRestaurantByName);
-    router.post("/restaurant", ressource.addRestaurant);
-    router.delete("/restaurant/:name", ressource.deleteRestaurant);
+   
+    router.get("/",ressource.findAllRessourcesNames);
+
+    router.get("/Restaurant", ressource.findAllRestaurantNames);
+    router.get("/Restaurant/:name", ressource.findRestaurantByName);
+    router.put("/Restaurant/:name", ressource.updateRestaurantByName);
+    router.post("/Restaurant", ressource.addRestaurant);
+    router.delete("/Restaurant/:name", ressource.deleteRestaurant);
     
     router.get("/hotel", ressource.findAllHotelNames);
     router.get("/hotel/:name", ressource.findHotelByName);
